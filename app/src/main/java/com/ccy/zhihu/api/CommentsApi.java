@@ -1,0 +1,24 @@
+package com.ccy.zhihu.api;
+
+import com.ccy.zhihu.entity.comments.LongCommentsEntity;
+import com.ccy.zhihu.entity.comments.ShortCommentsEntity;
+
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+import rx.Observable;
+
+public interface CommentsApi {
+    /**
+     * 获取文章长评论
+     * @param storyId
+     */
+    @GET("story/{storyId}/long-comments")
+    Observable<LongCommentsEntity> getLongComments(@Path("storyId") int storyId);
+
+    /**
+     * 获取文章短评论
+     * @param storyId
+     */
+    @GET("story/{storyId}/short-comments")
+    Observable<ShortCommentsEntity> getShortComments(@Path("storyId") int storyId);
+}
